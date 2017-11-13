@@ -119,6 +119,29 @@
 
   <build>
     <plugins>
+		<plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-jarsigner-plugin</artifactId>
+	        <version>1.4</version>
+	        <executions>
+	          <execution>
+	            <id>sign</id>
+	            <goals>
+	              <goal>sign</goal>
+	            </goals>
+	          </execution>
+	          <execution>
+	            <id>verify</id>
+	            <goals>
+	              <goal>verify</goal>
+	            </goals>
+	          </execution>
+	        </executions>
+	        <configuration>
+	          <alias>ufc-qx</alias>
+	          <storepass>secret</storepass>
+	        </configuration>
+	    </plugin>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
@@ -221,6 +244,41 @@
           </formats>
           <check />
         </configuration>
+      </plugin>
+	  <!-- PMD plugin -->
+	  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.8</version>
+        <configuration>
+          <linkXref>true</linkXref>
+          <sourceEncoding>utf-8</sourceEncoding>
+          <minimumTokens>100</minimumTokens>
+          <targetJdk>1.5</targetJdk>
+          <excludes>
+            <exclude>**/*Bean.java</exclude>
+            <exclude>**/generated/*.java</exclude>
+          </excludes>
+          <excludeRoots>
+            <excludeRoot>target/generated-sources/stubs</excludeRoot>
+          </excludeRoots>
+        </configuration>
+      </plugin>
+	  <!-- Checkstyle plugin -->
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-checkstyle-plugin</artifactId>
+			<version>1.24.2</version>
+			<configuration>
+				<configLocation>checkstyle.xml</configLocation>
+				<failOnViolation>true</failOnViolation>
+			</configuration>
+		</plugin>
+	  <!-- FindBugs plugin -->
+	  <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>3.0.6-SNAPSHOT</version>
       </plugin>
     </plugins>
   </reporting>
