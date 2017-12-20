@@ -28,7 +28,7 @@
     <wro4j.version>1.8.0</wro4j.version>
     <thymeleaf.version>3.0.6.RELEASE</thymeleaf.version>
 
-    <cobertura.version>2.7</cobertura.version>
+    <jacoco.version>0.7.9</jacoco.version>
     <checkstyle.version>2.17</checkstyle.version>
     <findbugs.version>3.0.5</findbugs.version>
     <pmd.version>3.2</pmd.version>
@@ -195,27 +195,6 @@
           </dependency>
         </dependencies>
       </plugin>
-      	<!-- Cobertura for coverage reporting -->
-      	<!-- This way, it's executed inside package goal -->
-      	<plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>cobertura-maven-plugin</artifactId>
-          <version>${cobertura.version}</version>
-          <configuration>
-              <formats>
-                  <format>xml</format>
-              </formats>
-          </configuration>
-          <executions>
-              <execution>
-                  <phase>package</phase>
-                  <goals>
-                      <goal>cobertura</goal>
-                  </goals>
-              </execution>
-          </executions>
-      	</plugin>
-      	<!-- END Cobertura plugin -->
       
       	<!-- Static analysis plugins -->
       	
@@ -242,7 +221,27 @@
 				<xmlOutputDirectory>target</xmlOutputDirectory>
 			</configuration>
 		</plugin>
-		
+		<!-- JaCoCo plugin for reporting coverage -->
+		<plugin>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>${jacoco.version}</version>
+			<executions>
+                   <execution>
+                       <id>default-prepare-agent</id>
+                       <goals>
+						<goal>prepare-agent</goal>
+					</goals>
+                   </execution>
+                   <execution>
+                       <id>default-report</id>
+                       <phase>prepare-package</phase>
+                    	<goals>
+							<goal>report</goal>
+						</goals>
+                   </execution>
+               </executions>
+		</plugin>
     </plugins>
   </build>
   
@@ -260,6 +259,7 @@
           <check />
         </configuration>
       </plugin>
+      
       <plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-checkstyle-plugin</artifactId>
