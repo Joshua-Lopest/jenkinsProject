@@ -198,17 +198,6 @@
       
       	<!-- Static analysis plugins -->
       	
-      	<!-- PMD -->
-      	<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-pmd-plugin</artifactId>
-			<version>${pmd.version}</version>
-			<configuration>
-				<rulesets>
-					<ruleset>pmd.xml</ruleset>
-				</rulesets>
-			</configuration>
-	 	</plugin>
       	<!-- Findbugs -->
       	<plugin>
 			<groupId>org.codehaus.mojo</groupId>
@@ -273,6 +262,17 @@
 				</reportSet>
 			</reportSets>
 		</plugin>
+		<!-- PMD report-->
+      	<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-pmd-plugin</artifactId>
+			<version>${pmd.version}</version>
+			<configuration>
+				<rulesets>
+					<ruleset>pmd.xml</ruleset>
+				</rulesets>
+			</configuration>
+	 	</plugin>
     </plugins>
   </reporting>
 
