@@ -5,7 +5,14 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
     <description>Every Java Rule in PMD</description>
-	
-    <rule ref="rulesets/java/imports.xml"/>
-    <rule ref="rulesets/java/strings.xml"/>
+
+
+    <!-- Based on original config file of PMD -->
+
+    <rule ref="ruleset/java/bestpractices.xml" />
+    <rule ref="ruleset/java/codestyle.xml" />
+    <rule ref="ruleset/java/design.xml" />
+    <rule ref="ruleset/java/documentation.xml" />
+    <rule ref="ruleset/java/errorprone.xml" />
+
 </ruleset>

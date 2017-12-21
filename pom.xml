@@ -218,9 +218,9 @@
 				<failOnError>false</failOnError>
 				<xmlOutput>true</xmlOutput>
 				<includeFilterFile>findbugs.xml</includeFilterFile>
-				<xmlOutputDirectory>target</xmlOutputDirectory>
 			</configuration>
 		</plugin>
+		
 		<!-- JaCoCo plugin for reporting coverage -->
 		<plugin>
 			<groupId>org.jacoco</groupId>
@@ -260,7 +260,8 @@
         </configuration>
       </plugin>
       
-      <plugin>
+      <!-- Checkstyle report -->
+      	<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-checkstyle-plugin</artifactId>
 			<version>${checkstyle.version}</version>
