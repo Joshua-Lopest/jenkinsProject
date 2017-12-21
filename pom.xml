@@ -269,16 +269,9 @@
 			<version>${pmd.version}</version>
 			<configuration>
 				<rulesets>
-					<ruleset>pmd.xml</ruleset>
+					<ruleset>/pmd.xml</ruleset>
 				</rulesets>
 			</configuration>
-			<reportSets>
-				<reportSet>
-					<reports>
-						<report>pmd</report>
-					</reports>
-				</reportSet>
-			</reportSets>
 	 	</plugin>
     </plugins>
   </reporting>
