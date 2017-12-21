@@ -33,7 +33,7 @@
     <findbugs.version>3.0.5</findbugs.version>
     <pmd.version>3.2</pmd.version>
     
-    <checkstyle.config.location>checkstyle.xml</checkstyle.config.location>
+    <checkstyle.config.location>checkstyle-rules.xml</checkstyle.config.location>
 
   </properties>
 
@@ -206,7 +206,7 @@
 			<configuration>
 				<failOnError>false</failOnError>
 				<xmlOutput>true</xmlOutput>
-				<includeFilterFile>findbugs.xml</includeFilterFile>
+				<includeFilterFile>findbugs-rules.xml</includeFilterFile>
 			</configuration>
 		</plugin>
 		
@@ -269,7 +269,7 @@
 			<version>${pmd.version}</version>
 			<configuration>
 				<rulesets>
-					<ruleset>pmd.xml</ruleset>
+					<ruleset>pmd-rules.xml</ruleset>
 				</rulesets>
 			</configuration>
 	 	</plugin>
