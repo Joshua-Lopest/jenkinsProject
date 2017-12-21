@@ -272,6 +272,13 @@
 					<ruleset>pmd.xml</ruleset>
 				</rulesets>
 			</configuration>
+			<reportSets>
+				<reportSet>
+					<reports>
+						<report>pmd</report>
+					</reports>
+				</reportSet>
+			</reportSets>
 	 	</plugin>
     </plugins>
   </reporting>
